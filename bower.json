@@ -9,6 +9,10 @@
   "moduleType": [],
   "license": "MIT",
   "homepage": "https://github.com/shiorif",
+  "dependencies": {
+    "eventemitter2": "^0.4.14",
+    "shiorijk": ""
+  },
   "ignore": [
     "**/.*",
     "node_modules",
