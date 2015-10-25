@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES3",
+    "module": "commonjs",
+    "declaration": true,
+    "sourceMap": true,
+    "inlineSources": true,
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "filesGlob": [
+    "./**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "files": [
+    "./src/shiorif.ts",
+    "./typings/bundle.d.ts",
+    "./src/shiori.d.ts"
+  ]
+}

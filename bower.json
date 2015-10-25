@@ -1,0 +1,19 @@
+{
+  "name": "shiorif",
+  "version": "1.0.0",
+  "authors": [
+    "Narazaka"
+  ],
+  "description": "The convenient SHIORI Shared Library Interface",
+  "main": "shiorif.js",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/shiorif",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
