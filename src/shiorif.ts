@@ -4,11 +4,6 @@ if (typeof require === "undefined") require = function(){};
 declare var exports;
 if (typeof exports === "undefined") exports = {};
 
-import shiorijk = require('shiorijk');
-if(shiorijk) var ShioriJK = shiorijk;
-import eventemitter2 = require('eventemitter2');
-if (eventemitter2) var EventEmitter2 = eventemitter2.EventEmitter2;
-
 /**
  * The convenient SHIORI Shared Library Interface
  */

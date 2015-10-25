@@ -1,6 +1,6 @@
 {
   "name": "shiorif",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "The convenient SHIORI Shared Library Interface",
   "main": "lib/shiorif.js",
   "typings": "lib/shiorif.d.ts",
