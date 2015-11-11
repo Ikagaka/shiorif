@@ -1,8 +1,11 @@
 /* for browser */
+var ShioriJK;
 declare var require;
-if (typeof require === "undefined") require = function(){};
+if (typeof require !== "undefined") ShioriJK = require('shiorijk');
 declare var exports;
 if (typeof exports === "undefined") exports = {};
+
+//import * as ShioriJK from "shiorijk";
 
 /**
  * The convenient SHIORI Shared Library Interface

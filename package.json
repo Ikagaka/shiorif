@@ -1,6 +1,6 @@
 {
   "name": "shiorif",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The convenient SHIORI Shared Library Interface",
   "main": "lib/shiorif.js",
   "typings": "lib/shiorif.d.ts",
@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "eventemitter2": "^0.4.14",
-    "shiorijk": "^0.2.3"
+    "shiorijk": "^0.2.6"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
