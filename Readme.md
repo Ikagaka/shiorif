@@ -1,79 +1,38 @@
-shiorif
-===================
+# [shiorif](https://github.com/Ikagaka/shiorif)
+
+[![npm](https://img.shields.io/npm/v/shiorif.svg)](https://www.npmjs.com/package/shiorif)
+[![npm license](https://img.shields.io/npm/l/shiorif.svg)](https://www.npmjs.com/package/shiorif)
+[![npm download total](https://img.shields.io/npm/dt/shiorif.svg)](https://www.npmjs.com/package/shiorif)
+[![npm download by month](https://img.shields.io/npm/dm/shiorif.svg)](https://www.npmjs.com/package/shiorif)
+[![Bower](https://img.shields.io/bower/v/shiorif.svg)](https://github.com/Ikagaka/shiorif)
+[![Bower](https://img.shields.io/bower/l/shiorif.svg)](https://github.com/Ikagaka/shiorif)
+
+[![Dependency Status](https://david-dm.org/Ikagaka/shiorif.svg)](https://david-dm.org/Ikagaka/shiorif)
+[![devDependency Status](https://david-dm.org/Ikagaka/shiorif/dev-status.svg)](https://david-dm.org/Ikagaka/shiorif#info=devDependencies)
+[![Build Status](https://travis-ci.org/Ikagaka/shiorif.svg)](https://travis-ci.org/Ikagaka/shiorif)
+[![codecov.io](https://codecov.io/github/Ikagaka/shiorif/coverage.svg?branch=master)](https://codecov.io/github/Ikagaka/shiorif?branch=master)
+[![Code Climate](https://codeclimate.com/github/Ikagaka/shiorif/badges/gpa.svg)](https://codeclimate.com/github/Ikagaka/shiorif)
 
 The convenient SHIORI Shared Library Interface
 
-Install
--------------------
+## Install
+
+npm:
 ```
 npm install shiorif
 ```
 
+bower:
 ```
 bower install shiorif
 ```
 
-License
--------------------
+This module depends on [ShioriJK](https://github.com/Narazaka/shiorijk), [shiori_converter.js](https://github.com/Narazaka/shiori_converter.js) and [shiori_transaction.js](https://github.com/Narazaka/shiori_transaction.js).
+
+## API
+
+[API Document](https://ikagaka.github.io/shiorif/index.html)
+
+## License
+
 This is released under [MIT License](http://narazaka.net/license/MIT?2015).
-
-API
--------------------
-
-```typescript
-/**
- * The convenient SHIORI Shared Library Interface
- */
-export declare class Shiorif extends EventEmitter2 {
-    private shiori;
-    /**
-     * @param shiori The instance of SHIORI Shared Library Interface
-     */
-    constructor(shiori: Shiori);
-    /**
-     * SHIORI/2.x/3.x load()
-     *
-     * this emits load(dirpath), loaded(status), load:completed(status) events.
-     * @param dirpath The directory that SHIORI Shared Library is placed. The end character of dirpath must be the path separator (/ or \\).
-     * @returns The status code
-     */
-    load(dirpath: string): Shiorif.Transaction<number>;
-    /**
-     * SHIORI/2.x/3.x request()
-     *
-     * this emits request(request), response(response), request:completed(response), request:{ID}(request), response:{ID}(response), request:{ID}:completed(response) events.
-     * @param request The SHIORI Request
-     * @returns The SHIORI Response
-     */
-    request(request: string | ShioriJK.Message.Request): Shiorif.Transaction<ShioriJK.Message.Response>;
-    /**
-     * SHIORI/2.x/3.x unload()
-     *
-     * this emits unload(), unloaded(status), unload:completed(status) events.
-     * @returns The status code
-     */
-    unload(): Shiorif.Transaction<number>;
-}
-export declare namespace Shiorif {
-    /**
-     * レスポンス終了をemitするためのPromise拡張
-     */
-    class Transaction<R> extends Promise<R> {
-        private handler;
-        private event_names;
-        private result;
-        /**
-         * コンストラクタ
-         * @param handler イベントをemitするハンドラ
-         * @param event_names emitするイベント名
-         * @param result レスポンス
-         * @param callback Promiseのコンストラクタ引数
-         */
-        constructor(handler: Shiorif, event_names: string[], result: R, callback: (resolve: (thenableOrResult: R | Promise.Thenable<R>) => void, reject: (error: any) => void) => void);
-        /**
-         * 処理終了後にcompletedイベントをemitするthen
-         */
-        thenComplete<U>(onFulfill: (value: R) => U | Promise.Thenable<U>, onReject?: (error: any) => U | Promise.Thenable<U>, onProgress?: (note: any) => any): Promise<U>;
-    }
-}
-```
