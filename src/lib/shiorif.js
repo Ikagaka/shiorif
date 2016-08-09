@@ -113,7 +113,7 @@ export class Shiorif extends EventEmitter {
    * SHIORI/2.x/3.x request() by SHIORI/3.x request value
    * @param {string} method - method
    * @param {string} id - id
-   * @param {Object<string, string>} headers - headers
+   * @param {Object<string, string> | Array<string>} headers - headers
    * @param {boolean} convert - enable auto request version convert
    * @returns {Promise<ShioriTransaction>} The SHIORI request transaction
    */
@@ -123,7 +123,7 @@ export class Shiorif extends EventEmitter {
         version: '3.0',
         method: method,
       },
-      headers: headers,
+      headers: headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers,
     });
     return this.request(request, convert);
   }
@@ -150,7 +150,7 @@ export class Shiorif extends EventEmitter {
   /**
    * SHIORI/2.x/3.x request() by GET SHIORI/3.x request value
    * @param {string} id - id
-   * @param {Object<string, string>} headers - headers
+   * @param {Object<string, string> | Array<string>} headers - headers
    * @param {boolean} convert - enable auto request version convert
    * @returns {Promise<ShioriTransaction>} The SHIORI request transaction
    */
@@ -161,7 +161,7 @@ export class Shiorif extends EventEmitter {
   /**
    * SHIORI/2.x/3.x request() by NOTIFY SHIORI/3.x request value
    * @param {string} id - id
-   * @param {Object<string, string>} headers - headers
+   * @param {Object<string, string> | Array<string>} headers - headers
    * @param {boolean} convert - enable auto request version convert
    * @returns {Promise<ShioriTransaction>} The SHIORI request transaction
    */
@@ -182,6 +182,19 @@ export class Shiorif extends EventEmitter {
       if (!status) throw new Shiorif.StatusError();
       return status;
     });
+  }
+
+  /**
+   * convert array values to Reference* hash
+   * @param {Array<string>} headersArray header array values
+   * @returns {Object<string, string>} The headers hash value
+   */
+  static referencesFromArray(headersArray) {
+    const headers = {};
+    headersArray.forEach((header, index) => {
+      if (header != null) headers[`Reference${index}`] = header;
+    });
+    return headers;
   }
 }
 
