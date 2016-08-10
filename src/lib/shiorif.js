@@ -9,12 +9,14 @@ export class Shiorif extends EventEmitter {
   /**
    * @param {Shiori} shiori - The instance of SHIORI Shared Library Interface
    * @param {string} auto_convert_request_version - requests will be converted to this version
+   * @param {boolean} auto_adjust_to_response_charset - request charset header will be set to previous response charset
    * @return {Shiorif} this
    */
-  constructor(shiori, auto_convert_request_version = '2.6') {
+  constructor(shiori, auto_convert_request_version = '2.6', auto_adjust_to_response_charset = false) {
     super();
     this._shiori = shiori;
     this.auto_convert_request_version = auto_convert_request_version;
+    this.auto_adjust_to_response_charset = auto_adjust_to_response_charset;
     this._request_parser = new ShioriJK.Shiori.Request.Parser();
     this._response_parser = new ShioriJK.Shiori.Response.Parser();
   }
@@ -42,6 +44,23 @@ export class Shiorif extends EventEmitter {
    */
   set auto_convert_request_version(version) {
     this._auto_convert_request_version = version;
+  }
+
+  /**
+   * request charset header will be set to previous response charset
+   * @return {boolean} enabled or not
+   */
+  get auto_adjust_to_response_charset() {
+    return this._auto_adjust_to_response_charset;
+  }
+
+  /**
+   * request charset header will be set to previous response charset
+   * @param {boolean} enabled or not
+   * @return {boolean} enabled or not
+   */
+  set auto_adjust_to_response_charset(enabled) {
+    this._auto_adjust_to_response_charset = enabled;
   }
 
   /**
@@ -98,9 +117,13 @@ export class Shiorif extends EventEmitter {
         use_request.headers.header[name] = this.default_headers[name];
       }
     }
+    if (this.auto_adjust_to_response_charset && this._last_response_charset) {
+      use_request.headers.header.Charset = this._last_response_charset;
+    }
     return this.shiori.request(use_request.toString())
       .then((response) => {
         transaction.response = this._response_parser.parse(response);
+        this._last_response_charset = transaction.response.headers.header.Charset;
         this.emit('response', transaction);
         return transaction;
       });

@@ -48,16 +48,19 @@ var Shiorif = function (_EventEmitter) {
   /**
    * @param {Shiori} shiori - The instance of SHIORI Shared Library Interface
    * @param {string} auto_convert_request_version - requests will be converted to this version
+   * @param {boolean} auto_adjust_to_response_charset - request charset header will be set to previous response charset
    * @return {Shiorif} this
    */
   function Shiorif(shiori) {
     var auto_convert_request_version = arguments.length <= 1 || arguments[1] === undefined ? '2.6' : arguments[1];
+    var auto_adjust_to_response_charset = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
     (0, _classCallCheck3.default)(this, Shiorif);
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(Shiorif).call(this));
 
     _this._shiori = shiori;
     _this.auto_convert_request_version = auto_convert_request_version;
+    _this.auto_adjust_to_response_charset = auto_adjust_to_response_charset;
     _this._request_parser = new _shiorijk2.default.Shiori.Request.Parser();
     _this._response_parser = new _shiorijk2.default.Shiori.Response.Parser();
     return _this;
@@ -116,8 +119,12 @@ var Shiorif = function (_EventEmitter) {
           use_request.headers.header[name] = this.default_headers[name];
         }
       }
+      if (this.auto_adjust_to_response_charset && this._last_response_charset) {
+        use_request.headers.header.Charset = this._last_response_charset;
+      }
       return this.shiori.request(use_request.toString()).then(function (response) {
         transaction.response = _this3._response_parser.parse(response);
+        _this3._last_response_charset = transaction.response.headers.header.Charset;
         _this3.emit('response', transaction);
         return transaction;
       });
@@ -253,6 +260,27 @@ var Shiorif = function (_EventEmitter) {
     ,
     set: function set(version) {
       this._auto_convert_request_version = version;
+    }
+
+    /**
+     * request charset header will be set to previous response charset
+     * @return {boolean} enabled or not
+     */
+
+  }, {
+    key: 'auto_adjust_to_response_charset',
+    get: function get() {
+      return this._auto_adjust_to_response_charset;
+    }
+
+    /**
+     * request charset header will be set to previous response charset
+     * @param {boolean} enabled or not
+     * @return {boolean} enabled or not
+     */
+    ,
+    set: function set(enabled) {
+      this._auto_adjust_to_response_charset = enabled;
     }
 
     /**
