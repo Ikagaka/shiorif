@@ -98,7 +98,7 @@ export class Shiorif extends EventEmitter {
         use_request.headers.header[name] = this.default_headers[name];
       }
     }
-    return this.shiori.request(use_request)
+    return this.shiori.request(use_request.toString())
       .then((response) => {
         transaction.response = this._response_parser.parse(response);
         this.emit('response', transaction);

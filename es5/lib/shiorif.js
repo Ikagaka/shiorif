@@ -116,7 +116,7 @@ var Shiorif = function (_EventEmitter) {
           use_request.headers.header[name] = this.default_headers[name];
         }
       }
-      return this.shiori.request(use_request).then(function (response) {
+      return this.shiori.request(use_request.toString()).then(function (response) {
         transaction.response = _this3._response_parser.parse(response);
         _this3.emit('response', transaction);
         return transaction;
