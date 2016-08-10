@@ -1,9 +1,6 @@
-/* for browser */
-if (typeof require !== 'undefined') {
-  var ShioriJK = require('shiorijk');
-  var ShioriTransaction = require('shiori_transaction').ShioriTransaction;
-  var EventEmitter = require('eventemitter3');
-}
+import ShioriJK from 'shiorijk';
+import {ShioriTransaction} from 'shiori_transaction';
+import {EventEmitter} from 'events';
 
 /**
  * The convenient SHIORI Shared Library Interface
@@ -123,7 +120,7 @@ export class Shiorif extends EventEmitter {
         version: '3.0',
         method: method,
       },
-      headers: headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers,
+      headers: Object.assign({ID: id}, headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers),
     });
     return this.request(request, convert);
   }
@@ -131,12 +128,11 @@ export class Shiorif extends EventEmitter {
   /**
    * SHIORI/2.x/3.x request() by SHIORI/2.x request value
    * @param {string} method - method
-   * @param {string} id - id
    * @param {Object<string, string>} headers - headers
    * @param {boolean} convert - enable auto request version convert
    * @returns {Promise<ShioriTransaction>} The SHIORI request transaction
    */
-  request2(method, id, headers, convert = true) {
+  request2(method, headers, convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: '2.6',

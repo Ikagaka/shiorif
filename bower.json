@@ -4,12 +4,9 @@
     "Narazaka"
   ],
   "description": "The convenient SHIORI Shared Library Interface",
-  "main": "lib/shiorif.js",
+  "main": "./web/shiorif.js",
   "license": "MIT",
   "dependencies": {
-    "eventemitter3": "^1.1.1",
-    "shiori_transaction": "0.0.1",
-    "shiorijk": "^0.3.0"
   },
   "ignore": [
     "**/.*",
