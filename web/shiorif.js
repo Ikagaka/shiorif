@@ -168,7 +168,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.emit('request', transaction);
 	      var use_request = convert ? transaction.request.to(this.auto_convert_request_version) : transaction.request;
 	      for (var name in this.default_headers) {
-	        if (use_request.headers.header[name] != null) {
+	        if (use_request.headers.header[name] == null) {
 	          use_request.headers.header[name] = this.default_headers[name];
 	        }
 	      }
