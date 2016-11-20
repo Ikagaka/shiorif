@@ -7,7 +7,8 @@
 
 [![Dependency Status](https://david-dm.org/Ikagaka/shiorif.svg)](https://david-dm.org/Ikagaka/shiorif)
 [![devDependency Status](https://david-dm.org/Ikagaka/shiorif/dev-status.svg)](https://david-dm.org/Ikagaka/shiorif#info=devDependencies)
-[![Build Status](https://travis-ci.org/Ikagaka/shiorif.svg)](https://travis-ci.org/Ikagaka/shiorif)
+[![Travis Build Status](https://travis-ci.org/Ikagaka/shiorif.svg)](https://travis-ci.org/Ikagaka/shiorif)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Ikagaka/shiorif?svg=true)](https://ci.appveyor.com/project/Narazaka/shiorif)
 [![codecov.io](https://codecov.io/github/Ikagaka/shiorif/coverage.svg?branch=master)](https://codecov.io/github/Ikagaka/shiorif?branch=master)
 [![Code Climate](https://codeclimate.com/github/Ikagaka/shiorif/badges/gpa.svg)](https://codeclimate.com/github/Ikagaka/shiorif)
 
@@ -24,8 +25,8 @@ This module depends on [ShioriJK](https://github.com/Narazaka/shiorijk), [shiori
 
 ## API
 
-[API Document](https://ikagaka.github.io/shiorif/index.html)
+[API Document](https://ikagaka.github.io/shiorif/)
 
 ## License
 
-This is released under [MIT License](http://narazaka.net/license/MIT?2015).
+This is released under [MIT License](http://narazaka.net/license/MIT?2016).
