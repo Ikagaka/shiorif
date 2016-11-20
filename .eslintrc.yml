@@ -1,0 +1,16 @@
+parser: babel-eslint
+extends: narazaka
+env:
+  es6: true
+  node: true
+  mocha: true
+rules:
+  # for karma
+  no-process-env: 0
+  no-magic-numbers: 0
+  # for test
+  func-names: 0
+  prefer-arrow-callback: 0
+  no-invalid-this: 0
+  max-nested-callbacks: 0
+  max-statements-per-line: 0

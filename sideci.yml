@@ -1,0 +1,7 @@
+linter:
+  eslint:
+    options:
+      config: .eslintrc.yml
+  tslint:
+    options:
+      config: tslint.json
