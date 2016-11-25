@@ -1,7 +1,7 @@
 /// <reference types="mocha" />
 import * as assert from "power-assert";
-import {Shiorif} from "../src/lib/shiorif";
 import {Shiori} from "shioriloader";
+import {Shiorif} from "../src/lib/shiorif";
 
 class TestShiori implements Shiori {
   load(_: string) {

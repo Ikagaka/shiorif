@@ -1,8 +1,8 @@
-import * as ShioriJK from "shiorijk";
-import {ShioriTransaction} from "shiori_transaction";
 import {EventEmitter} from "events";
-import {Shiori} from "shioriloader";
 import {ShioriConverter} from "shiori_converter";
+import {ShioriTransaction} from "shiori_transaction";
+import * as ShioriJK from "shiorijk";
+import {Shiori} from "shioriloader";
 
 /** The convenient SHIORI Shared Library Interface */
 export class Shiorif extends EventEmitter {
@@ -37,7 +37,7 @@ export class Shiorif extends EventEmitter {
     shiori: Shiori,
     autoConvertRequestVersion: ShioriConverter.ShioriVersion = "2.6",
     autoAdjustToResponseCharset = false,
-    defaultHeaders: {[name: string]: string} = {}
+    defaultHeaders: {[name: string]: string} = {},
   ) {
     super();
     this._shiori = shiori;
@@ -111,7 +111,7 @@ export class Shiorif extends EventEmitter {
   request(request: string | ShioriJK.Message.Request, convert = true) {
     const transaction = new ShioriTransaction();
     transaction.setRequest(
-      request instanceof ShioriJK.Message.Request ? request : this._requestParser.parse(request)
+      request instanceof ShioriJK.Message.Request ? request : this._requestParser.parse(request),
     );
     this.emit("request", transaction);
     const useRequest = convert
@@ -142,11 +142,11 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request3(method: string, id: string, headers: {[name: string]: string} | string[], convert = true) {
+  request3(method: string, id: string, headers?: {[name: string]: string} | string[], convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "3.0",
-        method: method,
+        method,
       },
       headers: Object.assign({ID: id}, headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers),
     });
@@ -160,11 +160,11 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request2(method: string, headers: {[name: string]: string} | string[], convert = true) {
+  request2(method: string, headers?: {[name: string]: string} | string[], convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "2.6",
-        method: method,
+        method,
       },
       headers: headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers,
     });
@@ -178,7 +178,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  get3(id: string, headers: {[name: string]: string} | string[], convert = true) {
+  get3(id: string, headers?: {[name: string]: string} | string[], convert = true) {
     return this.request3("GET", id, headers, convert);
   }
 
@@ -189,7 +189,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  notify3(id: string, headers: {[name: string]: string} | string[], convert = true) {
+  notify3(id: string, headers?: {[name: string]: string} | string[], convert = true) {
     return this.request3("NOTIFY", id, headers, convert);
   }
 
@@ -199,7 +199,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  getVersion2(headers: {[name: string]: string} | string[], convert = true) {
+  getVersion2(headers?: {[name: string]: string} | string[], convert = true) {
     return this.request2("GET Version", headers, convert);
   }
 
