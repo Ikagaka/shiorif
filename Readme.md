@@ -1,5 +1,7 @@
 # [shiorif](https://github.com/Ikagaka/shiorif)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Ikagaka/shiorif.svg)](https://greenkeeper.io/)
+
 [![npm](https://img.shields.io/npm/v/shiorif.svg)](https://www.npmjs.com/package/shiorif)
 [![npm license](https://img.shields.io/npm/l/shiorif.svg)](https://www.npmjs.com/package/shiorif)
 [![npm download total](https://img.shields.io/npm/dt/shiorif.svg)](https://www.npmjs.com/package/shiorif)
