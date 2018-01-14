@@ -25,7 +25,7 @@
     "test": "npm run test-node && npm run test-web",
     "test-cli": "npm run test-node && npm run test-web-headless",
     "test-node": "cross-env NODE_ENV=test nyc mocha",
-    "test-web": "cross-env NODE_ENV=test karma start --single-run",
+    "test-web": "cross-env NODE_ENV=test NO_IE=1 karma start --single-run",
     "test-web-headless": "cross-env NODE_ENV=test NO_DETECT=1 karma start --single-run --browsers ChromeHeadless",
     "docdist": "cd doc && git clean -fd && git rm -rf * && cd .. && npm run doc && cd doc && touch .nojekyll && git add . && git commit -m doc && git push",
     "doc": "typedoc --mode file --out doc --readme Readme.md --disableOutputCheck --excludeNotExported lib && cd doc && git status && cd .."
