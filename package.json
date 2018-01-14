@@ -31,8 +31,10 @@
     "doc": "typedoc --mode file --out doc --readme Readme.md --disableOutputCheck --excludeNotExported lib && cd doc && git status && cd .."
   },
   "dependencies": {
+    "shiori_converter": "^2.0.1",
     "shiori_transaction": "^2.0.3",
-    "shiorijk": "^1.0.1"
+    "shiorijk": "^1.0.1",
+    "shioriloader": "^2.0.1"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.46",
@@ -58,7 +60,6 @@
     "mocha": "^4.1.0",
     "nyc": "^11.4.1",
     "power-assert": "^1.4.4",
-    "shioriloader": "^2.0.0",
     "shx": "^0.2.2",
     "ts-loader": "^3.2.0",
     "tslint": "^5.9.1",

@@ -1,8 +1,8 @@
-import {EventEmitter} from "events";
-import {ShioriConverter} from "shiori_converter";
-import {ShioriTransaction} from "shiori_transaction";
+import { EventEmitter } from "events";
+import { ShioriConverter } from "shiori_converter";
+import { ShioriTransaction } from "shiori_transaction";
 import * as ShioriJK from "shiorijk";
-import {Shiori} from "shioriloader";
+import { Shiori } from "shioriloader";
 
 /** The convenient SHIORI Shared Library Interface */
 export class Shiorif extends EventEmitter {
@@ -14,8 +14,9 @@ export class Shiorif extends EventEmitter {
   static referencesFromArray(headersArray: string[]) {
     const headers: {[name: string]: string} = {};
     headersArray.forEach((header, index) => {
-      if (header != null) headers[`Reference${index}`] = header;
+      if (header != null) headers[`Reference${index}`] = header; // tslint:disable-line no-null-keyword
     });
+
     return headers;
   }
 
@@ -93,9 +94,11 @@ export class Shiorif extends EventEmitter {
    */
   load(dirpath: string) {
     this.emit("load", dirpath);
+
     return this.shiori.load(dirpath).then((status) => {
       this.emit("loaded", status);
       if (!status) throw new Shiorif.StatusError();
+
       return status;
     });
   }
@@ -118,18 +121,20 @@ export class Shiorif extends EventEmitter {
       ? transaction.request.to(this.autoConvertRequestVersion)
       : transaction.request;
     for (const name in this.defaultHeaders) {
-      if (useRequest.headers.header[name] == null) {
+      if (useRequest.headers.header[name] == null) { // tslint:disable-line no-null-keyword
         useRequest.headers.header[name] = this.defaultHeaders[name];
       }
     }
     if (this.autoAdjustToResponseCharset && this._lastResponseCharset) {
       useRequest.headers.header["Charset"] = this._lastResponseCharset;
     }
+
     return this.shiori.request(useRequest.toString())
       .then((response) => {
         transaction.setResponse(this._responseParser.parse(response));
         this._lastResponseCharset = transaction.response.headers.header["Charset"];
         this.emit("response", transaction);
+
         return transaction;
       });
   }
@@ -148,8 +153,9 @@ export class Shiorif extends EventEmitter {
         version: "3.0",
         method,
       },
-      headers: Object.assign({ID: id}, headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers),
+      headers: {ID: id, ...(headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers)},
     });
+
     return this.request(request, convert);
   }
 
@@ -168,6 +174,7 @@ export class Shiorif extends EventEmitter {
       },
       headers: headers instanceof Array ? Shiorif.referencesFromArray(headers) : headers,
     });
+
     return this.request(request, convert);
   }
 
@@ -211,9 +218,11 @@ export class Shiorif extends EventEmitter {
    */
   unload() {
     this.emit("unload");
+
     return this.shiori.unload().then((status) => {
       this.emit("unloaded", status);
       if (!status) throw new Shiorif.StatusError();
+
       return status;
     });
   }

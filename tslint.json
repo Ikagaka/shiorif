@@ -1,21 +1,29 @@
 {
     "extends": [
-        "tslint:recommended"
+        "tslint:all"
     ],
     "rules": {
-        "member-access": [
-            false
-        ],
-        "interface-name": [
-            false
-        ],
+        "typedef": false,
+        "member-access": false,
+        "interface-name": false,
         "no-namespace": false,
         "curly": false,
-        "variable-name": [true, "allow-leading-underscore"],
+        "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore"],
         "no-string-literal": false,
         "object-literal-sort-keys": false,
         "max-classes-per-file": [
             false
-        ]
+        ],
+        "member-ordering": false,
+        "newline-per-chained-call": false,
+        "triple-equals": [
+            true,
+            "allow-null-check"
+        ],
+        "completed-docs": false,
+        "strict-type-predicates": false,
+        "strict-boolean-expressions": false,
+        "no-unsafe-any": false,
+        "promise-function-async": false
     }
 }
