@@ -25,7 +25,7 @@ export class Shiorif extends EventEmitter {
   private _autoConvertRequestVersion: ShioriConverter.ShioriVersion;
   private _autoAdjustToResponseCharset: boolean;
   private _defaultHeaders: {[name: string]: string};
-  private _lastResponseCharset: string;
+  private _lastResponseCharset?: string;
 
   /**
    * @param shiori The instance of SHIORI Shared Library Interface
@@ -142,7 +142,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request3(method: string, id: string, headers?: {[name: string]: string} | string[], convert = true) {
+  request3(method: ShioriJK.Method, id: string, headers?: {[name: string]: string} | string[], convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "3.0",
@@ -160,7 +160,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request2(method: string, headers?: {[name: string]: string} | string[], convert = true) {
+  request2(method: ShioriJK.Method, headers?: {[name: string]: string} | string[], convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "2.6",
@@ -222,5 +222,5 @@ export class Shiorif extends EventEmitter {
 export namespace Shiorif {
   /** load() / unload() status error */
   export class StatusError extends Error {
-  };
+  }
 }
