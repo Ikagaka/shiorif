@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "babel-runtime": "^6.18.0",
-    "shiori_transaction": "^1.0.2",
-    "shiorijk": ">= 0.5.3 < 1.0"
+    "shiori_transaction": "^2.0.3",
+    "shiorijk": "^1.0.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.33",
