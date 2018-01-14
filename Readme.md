@@ -20,7 +20,7 @@ The convenient SHIORI Shared Library Interface
 
 npm:
 ```
-npm install shiorif
+npm install shiorijk shiorif
 ```
 
 This module depends on [ShioriJK](https://github.com/Narazaka/shiorijk), [shiori_converter.js](https://github.com/Narazaka/shiori_converter.js) and [shiori_transaction.js](https://github.com/Narazaka/shiori_transaction.js).
