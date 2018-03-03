@@ -147,7 +147,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request3(method: ShioriJK.Method, id: string, headers?: {[name: string]: string} | string[], convert = true) {
+  request3(method: ShioriJK.Method, id: string, headers?: Shiorif.Headers, convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "3.0",
@@ -166,7 +166,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  request2(method: ShioriJK.Method, headers?: {[name: string]: string} | string[], convert = true) {
+  request2(method: ShioriJK.Method, headers?: Shiorif.Headers, convert = true) {
     const request = new ShioriJK.Message.Request({
       request_line: {
         version: "2.6",
@@ -185,7 +185,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  get3(id: string, headers?: {[name: string]: string} | string[], convert = true) {
+  get3(id: string, headers?: Shiorif.Headers, convert = true) {
     return this.request3("GET", id, headers, convert);
   }
 
@@ -196,7 +196,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  notify3(id: string, headers?: {[name: string]: string} | string[], convert = true) {
+  notify3(id: string, headers?: Shiorif.Headers, convert = true) {
     return this.request3("NOTIFY", id, headers, convert);
   }
 
@@ -206,7 +206,7 @@ export class Shiorif extends EventEmitter {
    * @param convert enable auto request version convert
    * @return The SHIORI request transaction
    */
-  getVersion2(headers?: {[name: string]: string} | string[], convert = true) {
+  getVersion2(headers?: Shiorif.Headers, convert = true) {
     return this.request2("GET Version", headers, convert);
   }
 
@@ -232,4 +232,11 @@ export namespace Shiorif {
   /** load() / unload() status error */
   export class StatusError extends Error {
   }
+
+  /**
+   * headers
+   *
+   * array = Reference* / hash = general
+   */
+  export type Headers = {[name: string]: string} | string[];
 }
