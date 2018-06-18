@@ -239,4 +239,43 @@ export namespace Shiorif {
    * array = Reference* / hash = general
    */
   export type Headers = {[name: string]: string} | string[];
+
+  /** The convenient SHIORI Shared Library Interface (synchronized) */
+  export class Synchronized extends Shiorif {
+    private lock: Promise<void | number | ShioriTransaction> = Promise.resolve();
+
+    /**
+     * SHIORI/2.x/3.x load()
+     *
+     * this emits load(dirpath), loaded(status) events.
+     * @param dirpath The directory that SHIORI Shared Library is placed.
+     *                The end character of dirpath must be the path separator (/ or \\).
+     * @return The status code
+     */
+    load(dirpath: string) {
+      return (this.lock = this.lock.then(() => super.load(dirpath)));
+    }
+
+    /**
+     * SHIORI/2.x/3.x request()
+     *
+     * this emits request(request), response(response) events.
+     * @param request The SHIORI Request
+     * @param convert enable auto request version convert
+     * @return The SHIORI request transaction
+     */
+    request(request: string | ShioriJK.Message.Request, convert = true) {
+      return (this.lock = this.lock.then(() => super.request(request, convert)));
+    }
+
+    /**
+     * SHIORI/2.x/3.x unload()
+     *
+     * this emits unload(), unloaded(status) events.
+     * @return The status code
+     */
+    unload() {
+      return (this.lock = this.lock.then(() => super.unload()));
+    }
+  }
 }
