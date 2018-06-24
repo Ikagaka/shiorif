@@ -40,6 +40,8 @@
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
 							<input type="checkbox" id="tsd-filter-externals" checked />
 							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -79,11 +81,6 @@
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Shiorif</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="shiorif.synchronized.html" class="tsd-signature-type">Synchronized</a>
-									</li>
-								</ul>
 							</li>
 						</ul>
 					</li>
@@ -97,7 +94,6 @@
 							<h3>Classes</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-class tsd-parent-kind-class"><a href="shiorif.statuserror.html" class="tsd-kind-icon">Status<wbr>Error</a></li>
-								<li class="tsd-kind-class tsd-parent-kind-class"><a href="shiorif.synchronized.html" class="tsd-kind-icon">Synchronized</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -122,6 +118,8 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_requestparser" class="tsd-kind-icon">_request<wbr>Parser</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_responseparser" class="tsd-kind-icon">_response<wbr>Parser</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_shiori" class="tsd-kind-icon">_shiori</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_synchronized" class="tsd-kind-icon">_synchronized</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#lock" class="tsd-kind-icon">lock</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="shiorif.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -132,11 +130,15 @@
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="shiorif.html#autoconvertrequestversion" class="tsd-kind-icon">auto<wbr>Convert<wbr>Request<wbr>Version</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="shiorif.html#defaultheaders" class="tsd-kind-icon">default<wbr>Headers</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class"><a href="shiorif.html#shiori" class="tsd-kind-icon">shiori</a></li>
+								<li class="tsd-kind-accessor tsd-parent-kind-class"><a href="shiorif.html#synchronized" class="tsd-kind-icon">synchronized</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_load" class="tsd-kind-icon">_load</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_request" class="tsd-kind-icon">_request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="shiorif.html#_unload" class="tsd-kind-icon">_unload</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#emit" class="tsd-kind-icon">emit</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#eventnames" class="tsd-kind-icon">event<wbr>Names</a></li>
@@ -147,10 +149,12 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#listeners" class="tsd-kind-icon">listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="shiorif.html#load" class="tsd-kind-icon">load</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="shiorif.html#notify3" class="tsd-kind-icon">notify3</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#off" class="tsd-kind-icon">off</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#on" class="tsd-kind-icon">on</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#once" class="tsd-kind-icon">once</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#prependlistener" class="tsd-kind-icon">prepend<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited"><a href="shiorif.html#removelistener" class="tsd-kind-icon">remove<wbr>Listener</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="shiorif.html#request" class="tsd-kind-icon">request</a></li>
@@ -173,7 +177,7 @@
 					<div class="tsd-signature tsd-kind-icon">Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L241">shiorif.ts:241</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L273">shiorif.ts:273</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -190,13 +194,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Shiorif<span class="tsd-signature-symbol">(</span>shiori<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shiori</span>, autoConvertRequestVersion<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ShioriConverter.ShioriVersion</span>, autoAdjustToResponseCharset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span>, defaultHeaders<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="shiorif.html" class="tsd-signature-type">Shiorif</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Shiorif<span class="tsd-signature-symbol">(</span>shiori<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Shiori</span>, options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="shiorif.html" class="tsd-signature-type">Shiorif</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L29">shiorif.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L31">shiorif.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,31 +216,44 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> autoConvertRequestVersion: <span class="tsd-signature-type">ShioriConverter.ShioriVersion</span><span class="tsd-signature-symbol"> =&nbsp;&quot;2.6&quot;</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
-											<p>requests will be converted to this version</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> autoAdjustToResponseCharset: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>request charset header will be set to previous response charset</p>
-										</div>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> defaultHeaders: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>default headers</p>
+											<p>options</p>
 										</div>
 									</div>
 									<ul class="tsd-parameters">
-										<li class="tsd-parameter-index-signature">
-											<h5><span class="tsd-signature-symbol">[</span>name: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">string</span></h5>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> auto<wbr>Adjust<wbr>ToResponse<wbr>Charset<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>request charset header will be set to previous response charset</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> auto<wbr>Convert<wbr>Request<wbr>Version<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ShioriConverter.ShioriVersion</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>requests will be converted to this version</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> default<wbr>Headers<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">object</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>default headers</p>
+												</div>
+											</div>
+										</li>
+										<li class="tsd-parameter">
+											<h5><span class="tsd-flag ts-flagOptional">Optional</span> synchronized<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
+											<div class="tsd-comment tsd-typography">
+												<div class="lead">
+													<p>synchronized mode</p>
+												</div>
+											</div>
 										</li>
 									</ul>
 								</li>
@@ -254,7 +271,7 @@
 					<div class="tsd-signature tsd-kind-icon">_auto<wbr>Adjust<wbr>ToResponse<wbr>Charset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L27">shiorif.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L27">shiorif.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +281,7 @@
 					<div class="tsd-signature tsd-kind-icon">_auto<wbr>Convert<wbr>Request<wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ShioriConverter.ShioriVersion</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L26">shiorif.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L26">shiorif.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +291,7 @@
 					<div class="tsd-signature tsd-kind-icon">_default<wbr>Headers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L28">shiorif.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L28">shiorif.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -292,7 +309,7 @@
 					<div class="tsd-signature tsd-kind-icon">_last<wbr>Response<wbr>Charset<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L29">shiorif.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L30">shiorif.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -302,7 +319,7 @@
 					<div class="tsd-signature tsd-kind-icon">_request<wbr>Parser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Parser</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L24">shiorif.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L24">shiorif.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -312,7 +329,7 @@
 					<div class="tsd-signature tsd-kind-icon">_response<wbr>Parser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Parser</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L25">shiorif.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L25">shiorif.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -322,7 +339,27 @@
 					<div class="tsd-signature tsd-kind-icon">_shiori<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Shiori</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L23">shiorif.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L23">shiorif.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_synchronized" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _synchronized</h3>
+					<div class="tsd-signature tsd-kind-icon">_synchronized<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L29">shiorif.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="lock" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> lock</h3>
+					<div class="tsd-signature tsd-kind-icon">lock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ShioriTransaction</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;Promise.resolve()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L31">shiorif.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -333,7 +370,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from EventEmitter.defaultMaxListeners</p>
 						<ul>
-							<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:907</li>
+							<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1021</li>
 						</ul>
 					</aside>
 				</section>
@@ -351,7 +388,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L68">shiorif.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L76">shiorif.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L73">shiorif.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L81">shiorif.ts:81</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -393,7 +430,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L58">shiorif.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L66">shiorif.ts:66</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -411,7 +448,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L63">shiorif.ts:63</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L71">shiorif.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -440,7 +477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L78">shiorif.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L86">shiorif.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,7 +495,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L83">shiorif.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L91">shiorif.ts:91</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -491,7 +528,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L53">shiorif.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L61">shiorif.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -503,9 +540,117 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-accessor tsd-parent-kind-class">
+					<a name="synchronized" class="tsd-anchor"></a>
+					<h3>synchronized</h3>
+					<ul class="tsd-signatures tsd-kind-accessor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> synchronized<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">set</span> synchronized<span class="tsd-signature-symbol">(</span>synchronized<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L96">shiorif.ts:96</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>synchronized mode</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L101">shiorif.ts:101</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>synchronized mode</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>synchronized: <span class="tsd-signature-type">boolean</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_load" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _load</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_load<span class="tsd-signature-symbol">(</span>dirpath<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L117">shiorif.ts:117</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>dirpath: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_request" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _request</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_request<span class="tsd-signature-symbol">(</span>request<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Request</span>, convert<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ShioriTransaction</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L142">shiorif.ts:142</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>request: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Request</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> convert: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">ShioriTransaction</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="_unload" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _unload</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">_unload<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L251">shiorif.ts:251</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="addlistener" class="tsd-anchor"></a>
 					<h3>add<wbr>Listener</h3>
@@ -518,7 +663,7 @@
 								<p>Inherited from EventEmitter.addListener</p>
 								<p>Overrides EventEmitter.addListener</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:909</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1023</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -564,7 +709,7 @@
 								<p>Inherited from EventEmitter.emit</p>
 								<p>Overrides EventEmitter.emit</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:919</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1035</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -592,7 +737,7 @@
 								<p>Inherited from EventEmitter.eventNames</p>
 								<p>Overrides EventEmitter.eventNames</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:920</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1036</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -609,7 +754,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L188">shiorif.ts:188</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L216">shiorif.ts:216</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,7 +800,7 @@
 								<p>Inherited from EventEmitter.getMaxListeners</p>
 								<p>Overrides EventEmitter.getMaxListeners</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:917</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1032</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -672,7 +817,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L209">shiorif.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L237">shiorif.ts:237</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -712,7 +857,7 @@
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<p>Overrides EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:921</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1037</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -737,7 +882,7 @@
 								<p>Inherited from EventEmitter.listeners</p>
 								<p>Overrides EventEmitter.listeners</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:918</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1033</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -760,7 +905,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L95">shiorif.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L113">shiorif.ts:113</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -794,7 +939,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L199">shiorif.ts:199</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L227">shiorif.ts:227</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -829,6 +974,52 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="off" class="tsd-anchor"></a>
+					<h3>off</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">off<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span>, listener<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.off</p>
+								<p>Overrides EventEmitter.off</p>
+								<ul>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1029</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+								<li>
+									<h5>listener: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="on" class="tsd-anchor"></a>
 					<h3>on</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -840,7 +1031,7 @@
 								<p>Inherited from EventEmitter.on</p>
 								<p>Overrides EventEmitter.on</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:910</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1024</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -886,7 +1077,7 @@
 								<p>Inherited from EventEmitter.once</p>
 								<p>Overrides EventEmitter.once</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:911</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1025</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -932,7 +1123,7 @@
 								<p>Inherited from EventEmitter.prependListener</p>
 								<p>Overrides EventEmitter.prependListener</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:912</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1026</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -978,7 +1169,7 @@
 								<p>Inherited from EventEmitter.prependOnceListener</p>
 								<p>Overrides EventEmitter.prependOnceListener</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:913</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1027</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1013,6 +1204,31 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+					<a name="rawlisteners" class="tsd-anchor"></a>
+					<h3>raw<wbr>Listeners</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">raw<wbr>Listeners<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from EventEmitter.rawListeners</p>
+								<p>Overrides EventEmitter.rawListeners</p>
+								<ul>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1034</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>event: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">symbol</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Function</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 					<a name="removealllisteners" class="tsd-anchor"></a>
 					<h3>remove<wbr>All<wbr>Listeners</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -1024,7 +1240,7 @@
 								<p>Inherited from EventEmitter.removeAllListeners</p>
 								<p>Overrides EventEmitter.removeAllListeners</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:915</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1030</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1049,7 +1265,7 @@
 								<p>Inherited from EventEmitter.removeListener</p>
 								<p>Overrides EventEmitter.removeListener</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:914</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1028</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1093,7 +1309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L114">shiorif.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L136">shiorif.ts:136</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1132,7 +1348,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L169">shiorif.ts:169</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L197">shiorif.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1176,7 +1392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L150">shiorif.ts:150</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L178">shiorif.ts:178</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1228,7 +1444,7 @@
 								<p>Inherited from EventEmitter.setMaxListeners</p>
 								<p>Overrides EventEmitter.setMaxListeners</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:916</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1031</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1251,7 +1467,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L219">shiorif.ts:219</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L247">shiorif.ts:247</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1276,9 +1492,16 @@
 							<aside class="tsd-sources">
 								<p>Inherited from EventEmitter.listenerCount</p>
 								<ul>
-									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:906</li>
+									<li>Defined in D:/make/ukagaka/Ikagaka/shiorif/node_modules/@types/node/index.d.ts:1020</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<dl class="tsd-comment-tags">
+									<dt>deprecated</dt>
+									<dd><p>since v4.0.0</p>
+									</dd>
+								</dl>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -1302,7 +1525,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/1eafa59/lib/shiorif.ts#L14">shiorif.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Ikagaka/shiorif/blob/bf27644/lib/shiorif.ts#L14">shiorif.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1349,9 +1572,6 @@
 							<li class=" tsd-kind-class tsd-parent-kind-class">
 								<a href="shiorif.statuserror.html" class="tsd-kind-icon">Status<wbr>Error</a>
 							</li>
-							<li class=" tsd-kind-class tsd-parent-kind-class">
-								<a href="shiorif.synchronized.html" class="tsd-kind-icon">Synchronized</a>
-							</li>
 							<li class=" tsd-kind-type-alias tsd-parent-kind-class tsd-is-static">
 								<a href="shiorif.html#headers" class="tsd-kind-icon">Headers</a>
 							</li>
@@ -1379,6 +1599,12 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="shiorif.html#_shiori" class="tsd-kind-icon">_shiori</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="shiorif.html#_synchronized" class="tsd-kind-icon">_synchronized</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="shiorif.html#lock" class="tsd-kind-icon">lock</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
 								<a href="shiorif.html#defaultmaxlisteners" class="tsd-kind-icon">default<wbr>Max<wbr>Listeners</a>
 							</li>
@@ -1393,6 +1619,18 @@
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class">
 								<a href="shiorif.html#shiori" class="tsd-kind-icon">shiori</a>
+							</li>
+							<li class=" tsd-kind-accessor tsd-parent-kind-class">
+								<a href="shiorif.html#synchronized" class="tsd-kind-icon">synchronized</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="shiorif.html#_load" class="tsd-kind-icon">_load</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="shiorif.html#_request" class="tsd-kind-icon">_request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="shiorif.html#_unload" class="tsd-kind-icon">_unload</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="shiorif.html#addlistener" class="tsd-kind-icon">add<wbr>Listener</a>
@@ -1425,6 +1663,9 @@
 								<a href="shiorif.html#notify3" class="tsd-kind-icon">notify3</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="shiorif.html#off" class="tsd-kind-icon">off</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="shiorif.html#on" class="tsd-kind-icon">on</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
@@ -1435,6 +1676,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="shiorif.html#prependoncelistener" class="tsd-kind-icon">prepend<wbr>Once<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
+								<a href="shiorif.html#rawlisteners" class="tsd-kind-icon">raw<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited">
 								<a href="shiorif.html#removealllisteners" class="tsd-kind-icon">remove<wbr>All<wbr>Listeners</a>
