@@ -30,21 +30,24 @@ export class Shiorif extends EventEmitter {
 
   /**
    * @param shiori The instance of SHIORI Shared Library Interface
-   * @param autoConvertRequestVersion requests will be converted to this version
-   * @param autoAdjustToResponseCharset request charset header will be set to previous response charset
-   * @param defaultHeaders default headers
+   * @param options options
    */
   constructor(
     shiori: Shiori,
-    autoConvertRequestVersion: ShioriConverter.ShioriVersion = "2.6",
-    autoAdjustToResponseCharset = false,
-    defaultHeaders: {[name: string]: string} = {},
+    options: {
+      /** requests will be converted to this version */
+      autoConvertRequestVersion?: ShioriConverter.ShioriVersion;
+      /** request charset header will be set to previous response charset */
+      autoAdjustToResponseCharset?: boolean;
+      /** default headers */
+      defaultHeaders?: {[name: string]: string};
+    } = {},
   ) {
     super();
     this._shiori = shiori;
-    this.autoConvertRequestVersion = autoConvertRequestVersion;
-    this.autoAdjustToResponseCharset = autoAdjustToResponseCharset;
-    this._defaultHeaders = defaultHeaders;
+    this.autoConvertRequestVersion = options.autoConvertRequestVersion || "2.6";
+    this.autoAdjustToResponseCharset = options.autoAdjustToResponseCharset || false;
+    this._defaultHeaders = options.defaultHeaders || {};
     this._requestParser = new ShioriJK.Shiori.Request.Parser();
     this._responseParser = new ShioriJK.Shiori.Response.Parser();
   }
