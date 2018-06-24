@@ -26,7 +26,9 @@ export class Shiorif extends EventEmitter {
   private _autoConvertRequestVersion: ShioriConverter.ShioriVersion;
   private _autoAdjustToResponseCharset: boolean;
   private _defaultHeaders: {[name: string]: string};
+  private _synchronized: boolean;
   private _lastResponseCharset?: string;
+  private lock: Promise<void | number | ShioriTransaction> = Promise.resolve();
 
   /**
    * @param shiori The instance of SHIORI Shared Library Interface
@@ -41,6 +43,8 @@ export class Shiorif extends EventEmitter {
       autoAdjustToResponseCharset?: boolean;
       /** default headers */
       defaultHeaders?: {[name: string]: string};
+      /** synchronized mode */
+      synchronized?: boolean;
     } = {},
   ) {
     super();
@@ -48,6 +52,7 @@ export class Shiorif extends EventEmitter {
     this.autoConvertRequestVersion = options.autoConvertRequestVersion || "2.6";
     this.autoAdjustToResponseCharset = options.autoAdjustToResponseCharset || false;
     this._defaultHeaders = options.defaultHeaders || {};
+    this.synchronized = options.synchronized || false;
     this._requestParser = new ShioriJK.Shiori.Request.Parser();
     this._responseParser = new ShioriJK.Shiori.Response.Parser();
   }
@@ -87,6 +92,16 @@ export class Shiorif extends EventEmitter {
     this._defaultHeaders = headers;
   }
 
+  /** synchronized mode */
+  get synchronized() {
+    return this._synchronized;
+  }
+
+  /** synchronized mode */
+  set synchronized(synchronized) {
+    this._synchronized = synchronized;
+  }
+
   /**
    * SHIORI/2.x/3.x load()
    *
@@ -96,6 +111,10 @@ export class Shiorif extends EventEmitter {
    * @return The status code
    */
   load(dirpath: string) {
+    return this.synchronized ? (this.lock = this.lock.then(() => this._load(dirpath))) : this._load(dirpath);
+  }
+
+  private _load(dirpath: string) {
     this.emit("load", dirpath);
 
     return this.shiori.load(dirpath).then((status) => {
@@ -115,6 +134,12 @@ export class Shiorif extends EventEmitter {
    * @return The SHIORI request transaction
    */
   request(request: string | ShioriJK.Message.Request, convert = true) {
+    return this.synchronized ?
+      (this.lock = this.lock.then(() => this._request(request, convert))) :
+      this._request(request, convert);
+  }
+
+  private _request(request: string | ShioriJK.Message.Request, convert = true) {
     const transaction = new ShioriTransaction();
     transaction.setRequest(
       request instanceof ShioriJK.Message.Request ? request : this._requestParser.parse(request),
@@ -220,6 +245,10 @@ export class Shiorif extends EventEmitter {
    * @return The status code
    */
   unload() {
+    return this.synchronized ? (this.lock = this.lock.then(() => this._unload())) : this._unload();
+  }
+
+  private _unload() {
     this.emit("unload");
 
     return this.shiori.unload().then((status) => {
@@ -242,43 +271,4 @@ export namespace Shiorif {
    * array = Reference* / hash = general
    */
   export type Headers = {[name: string]: string} | string[];
-
-  /** The convenient SHIORI Shared Library Interface (synchronized) */
-  export class Synchronized extends Shiorif {
-    private lock: Promise<void | number | ShioriTransaction> = Promise.resolve();
-
-    /**
-     * SHIORI/2.x/3.x load()
-     *
-     * this emits load(dirpath), loaded(status) events.
-     * @param dirpath The directory that SHIORI Shared Library is placed.
-     *                The end character of dirpath must be the path separator (/ or \\).
-     * @return The status code
-     */
-    load(dirpath: string) {
-      return (this.lock = this.lock.then(() => super.load(dirpath)));
-    }
-
-    /**
-     * SHIORI/2.x/3.x request()
-     *
-     * this emits request(request), response(response) events.
-     * @param request The SHIORI Request
-     * @param convert enable auto request version convert
-     * @return The SHIORI request transaction
-     */
-    request(request: string | ShioriJK.Message.Request, convert = true) {
-      return (this.lock = this.lock.then(() => super.request(request, convert)));
-    }
-
-    /**
-     * SHIORI/2.x/3.x unload()
-     *
-     * this emits unload(), unloaded(status) events.
-     * @return The status code
-     */
-    unload() {
-      return (this.lock = this.lock.then(() => super.unload()));
-    }
-  }
 }
