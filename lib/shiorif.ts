@@ -121,7 +121,9 @@ export class Shiorif extends EventEmitter {
      */
     load(dirpath: string) {
         // eslint-disable-next-line no-return-assign
-        return this.synchronized ? (this.lock = this.lock.then(() => this._load(dirpath))) : this._load(dirpath);
+        return (this.synchronized
+            ? (this.lock = this.lock.then(() => this._load(dirpath)))
+            : this._load(dirpath)) as Promise<number>;
     }
 
     private _load(dirpath: string) {
@@ -145,9 +147,9 @@ export class Shiorif extends EventEmitter {
      */
     request(request: string | ShioriJK.Message.Request, convert = true) {
         // eslint-disable-next-line no-return-assign
-        return this.synchronized
+        return (this.synchronized
             ? (this.lock = this.lock.then(() => this._request(request, convert)))
-            : this._request(request, convert);
+            : this._request(request, convert)) as Promise<ShioriTransaction>;
     }
 
     private _request(request: string | ShioriJK.Message.Request, convert = true) {
@@ -255,7 +257,9 @@ export class Shiorif extends EventEmitter {
      */
     unload() {
         // eslint-disable-next-line no-return-assign
-        return this.synchronized ? (this.lock = this.lock.then(() => this._unload())) : this._unload();
+        return (this.synchronized ? (this.lock = this.lock.then(() => this._unload())) : this._unload()) as Promise<
+            number
+        >;
     }
 
     private _unload() {
