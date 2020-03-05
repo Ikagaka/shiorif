@@ -10,9 +10,7 @@
 [![Travis Build Status](https://travis-ci.org/Ikagaka/shiorif.svg?branch=master)](https://travis-ci.org/Ikagaka/shiorif)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/Ikagaka/shiorif?svg=true&branch=master)](https://ci.appveyor.com/project/Narazaka/shiorif)
 [![codecov.io](https://codecov.io/github/Ikagaka/shiorif/coverage.svg?branch=master)](https://codecov.io/github/Ikagaka/shiorif?branch=master)
-[![Code Climate](https://codeclimate.com/github/Ikagaka/shiorif/badges/gpa.svg)](https://codeclimate.com/github/Ikagaka/shiorif)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7db6b8203a3a45819b1efb7086461115)](https://www.codacy.com/app/narazaka/shiorif?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ikagaka/shiorif&amp;utm_campaign=Badge_Grade)
-[![Greenkeeper badge](https://badges.greenkeeper.io/Ikagaka/shiorif.svg)](https://greenkeeper.io/)
 
 The convenient SHIORI Shared Library Interface
 
