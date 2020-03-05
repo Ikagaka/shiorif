@@ -12,7 +12,7 @@ export class Shiorif extends EventEmitter {
      * @param headersArray header array values
      * @return headers hash
      */
-    static referencesFromArray(headersArray: string[]) {
+    static referencesFromArray(headersArray: (string | undefined)[]) {
         const headers: { [name: string]: string } = {};
         headersArray.forEach((header, index) => {
             if (header != null) headers[`Reference${index}`] = header;
@@ -284,5 +284,5 @@ export namespace Shiorif {
      *
      * array = Reference* / hash = general
      */
-    export type Headers = { [name: string]: string } | string[];
+    export type Headers = { [name: string]: string } | (string | undefined)[];
 }
